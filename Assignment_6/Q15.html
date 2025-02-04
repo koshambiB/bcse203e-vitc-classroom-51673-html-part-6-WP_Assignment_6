@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Find the Missing Number in an Array</h1>
+    <input type="text" id="arrayInput" placeholder="Enter numbers separated by commas">
+    <button onclick="findMissingNumber()">Find Missing Number</button>
+    <p id="result"></p>
+
+    <script>
+    function findMissingNumber() {
+        const input = document.getElementById('arrayInput').value;
+        const arr = input.split(',').map(Number);
+        const n = arr.length + 1;
+        const expectedSum = (n * (n + 1)) / 2;
+        const actualSum = arr.reduce((a, b) => a + b, 0);
+        const missingNumber = expectedSum - actualSum;
+        document.getElementById('result').innerText = `Missing number is: ${missingNumber}`;
+    }
+    </script>
+</body>
+</html>
