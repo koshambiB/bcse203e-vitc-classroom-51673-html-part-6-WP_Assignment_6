@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="generateFibonacci()">Generate Fibonacci</button>
+    <p id="result"></p>
+
+    <script>
+    function generateFibonacci() {
+        const n = document.getElementById('number').value;
+        const result = document.getElementById('result');
+        result.innerHTML = fibonacciSeries(n).join(', ');
+    }
+
+    function fibonacciSeries(n) {
+        if (n <= 0) return [];
+        if (n == 1) return [0];
+        if (n == 2) return [0, 1];
+        const series = fibonacciSeries(n - 1);
+        series.push(series[series.length - 1] + series[series.length - 2]);
+        return series;
+    }
+    </script>
+</body>
+</html>
