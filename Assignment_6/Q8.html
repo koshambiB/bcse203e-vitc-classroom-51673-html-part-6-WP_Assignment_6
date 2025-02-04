@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Find the GCD of Two Numbers</h1>
+    <form id="gcdForm">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" required>
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" required>
+        <button type="submit">Find GCD</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function gcd(a, b) {
+            if (!b) {
+                return a;
+            }
+            return gcd(b, a % b);
+        }
+
+        document.getElementById('gcdForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const num1 = parseInt(document.getElementById('num1').value);
+            const num2 = parseInt(document.getElementById('num2').value);
+            const result = gcd(num1, num2);
+            document.getElementById('result').textContent = 'GCD: ' + result;
+        });
+    </script>
+</body>
+</html>
